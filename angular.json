@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "f18465b7-e8f3-4bac-8444-2ccb49d3ec25"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -102,6 +105,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "ng2-cookie": {
+      "projectType": "library",
+      "root": "projects/ng2-cookie",
+      "sourceRoot": "projects/ng2-cookie/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng2-cookie/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng2-cookie/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng2-cookie/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng2-cookie/src/test.ts",
+            "tsConfig": "projects/ng2-cookie/tsconfig.spec.json",
+            "karmaConfig": "projects/ng2-cookie/karma.conf.js"
           }
         }
       }
